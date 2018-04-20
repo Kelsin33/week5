@@ -30,13 +30,10 @@ router.get('/show-pets', function(req,res){
  */
 router.get('/', function(req, res) {
 
-  var jsonData = {
-  	'name': 'node-express-api-boilerplate',
-  	'api-status':'OK'
-  }
+  res.render('show-pets.html')
 
   // respond with json data
-  res.json(jsonData)
+  // res.json(jsonData)
 });
 
 // /**
@@ -96,6 +93,7 @@ router.post('/api/create', function(req, res){
       return res.redirect('/show-pets')
 
     })
+
 });
 
 // /**
@@ -270,7 +268,7 @@ router.post('/api/update/:id', function(req, res){
         animal: data
       }
 
-      return res.json(jsonData);
+      return res.redirect('/');
 
     })
 
@@ -300,7 +298,7 @@ router.get('/api/delete/:id', function(req, res){
       message: 'Successfully deleted id ' + requestedId
     }
 
-    res.json(jsonData);
+    res.redirect('/');
 
   })
 
